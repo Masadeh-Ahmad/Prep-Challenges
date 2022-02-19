@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Hacker Rank\n\nFor Thursdays you will be solving some selected challenges on HackerRank, please create an account if you don't have then\nFollow the links below:\nread them carefully and solve them then copy-paste your solution below in Code Block"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Required**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Birthday Cake Candles](https://www.hackerrank.com/challenges/birthday-cake-candles/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "'use strict';\n\nconst fs = require('fs');\n\nprocess.stdin.resume();\nprocess.stdin.setEncoding('utf-8');\n\nlet inputString = '';\nlet currentLine = 0;\n\nprocess.stdin.on('data', function(inputStdin) {\n    inputString += inputStdin;\n});\n\nprocess.stdin.on('end', function() {\n    inputString = inputString.split('\\n');\n\n    main();\n});\n\nfunction readLine() {\n    return inputString[currentLine++];\n}\n\n/*\n * Complete the 'birthdayCakeCandles' function below.\n *\n * The function is expected to return an INTEGER.\n * The function accepts INTEGER_ARRAY candles as parameter.\n */\n\nfunction birthdayCakeCandles(candles) {\n    if(candles.length>=1 && candles.length<=10**5){\n       let max=0;\n    let count=0;\n    for(let i of candles){\n        if(i>=1 && i<=10**7){\n            if(i>max){\n            max=i;\n        }\n        }\n        \n    }\n    for(let i of candles){\n        if(i==max)\n        count++;\n    }\n    return count; \n}\n    \n}\n\nfunction main() {\n    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);\n\n    const candlesCount = parseInt(readLine().trim(), 10);\n\n    const candles = readLine().replace(/\\s+$/g, '').split(' ').map(candlesTemp => parseInt(candlesTemp, 10));\n\n    const result = birthdayCakeCandles(candles);\n\n    ws.write(result + '\\n');\n\n    ws.end();\n}\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Optional**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Compare The Triplets](https://www.hackerrank.com/challenges/compare-the-triplets/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "'use strict';\n\nconst fs = require('fs');\n\nprocess.stdin.resume();\nprocess.stdin.setEncoding('utf-8');\n\nlet inputString = '';\nlet currentLine = 0;\n\nprocess.stdin.on('data', function(inputStdin) {\n    inputString += inputStdin;\n});\n\nprocess.stdin.on('end', function() {\n    inputString = inputString.split('\\n');\n\n    main();\n});\n\nfunction readLine() {\n    return inputString[currentLine++];\n}\n\n/*\n * Complete the 'compareTriplets' function below.\n *\n * The function is expected to return an INTEGER_ARRAY.\n * The function accepts following parameters:\n *  1. INTEGER_ARRAY a\n *  2. INTEGER_ARRAY b\n */\n\nfunction compareTriplets(a, b) {\n    let ac = 0;\n    let bc = 0;\n    for(let i=0;i<3;i++){\n        if((a[i] >=1 && a[i] <= 100) && (b[i] >= 1 && b[i] <= 100)){\n            if (a[i] < b[i]){\n                bc++;\n            }\n            else if(a[i] > b[i]){\n                ac++;\n            }\n        }\n    }\n    return[ac,bc];\n\n}\n\nfunction main() {\n    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);\n\n    const a = readLine().replace(/\\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));\n\n    const b = readLine().replace(/\\s+$/g, '').split(' ').map(bTemp => parseInt(bTemp, 10));\n\n    const result = compareTriplets(a, b);\n\n    ws.write(result.join(' ') + '\\n');\n\n    ws.end();\n}\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Migratory Birds](https://www.hackerrank.com/challenges/migratory-birds/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "'use strict';\n\nconst fs = require('fs');\n\nprocess.stdin.resume();\nprocess.stdin.setEncoding('utf-8');\n\nlet inputString = '';\nlet currentLine = 0;\n\nprocess.stdin.on('data', function(inputStdin) {\n    inputString += inputStdin;\n});\n\nprocess.stdin.on('end', function() {\n    inputString = inputString.split('\\n');\n\n    main();\n});\n\nfunction readLine() {\n    return inputString[currentLine++];\n}\n\n/*\n * Complete the 'migratoryBirds' function below.\n *\n * The function is expected to return an INTEGER.\n * The function accepts INTEGER_ARRAY arr as parameter.\n */\n\nfunction migratoryBirds(arr) {\n    if(arr.length >= 5 && arr.length <=2*10**5){\n        let c1 = 0;\n        let c2 = 0;\n        let c3 = 0;\n        let c4 = 0;\n        let c5 = 0;\n        for (let i = 0 ;i < arr.length ; i++){\n            if(arr[i] <= 5 && arr[i] >= 1){\n                switch (arr[i]){\n                    case 1:\n                    c1++;\n                    break;\n                    case 2:\n                    c2++;\n                    break;\n                    case 3:\n                    c3++;\n                    break;\n                    case 4:\n                    c4++;\n                    break;\n                    case 5:\n                    c5++;\n                    break;\n                }\n            }\n            }\n        let cl=[c1,c2,c3,c4,c5];\n        let max=0;\n        let maxl =[];\n        for(let i of cl){\n            if(i>max){\n               max=i; \n            }\n            \n        }\n        for(let i = 0 ;i < cl.length ; i++){\n            if (cl[i] == max){\n                maxl.push(i+1);\n                 \n            }\n           \n        }\n        return maxl[0];\n        }\n    }\n\n\nfunction main() {\n    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);\n\n    const arrCount = parseInt(readLine().trim(), 10);\n\n    const arr = readLine().replace(/\\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));\n\n    const result = migratoryBirds(arr);\n\n    ws.write(result + '\\n');\n\n    ws.end();\n}\n"
+            ],
+            "outputs": []
+        }
+    ]
+}
